@@ -1,0 +1,11 @@
+{
+  "name": "MMM_Webhook_Notification",
+  "version": "1.0.0",
+  "description": "Webhook Notification for Magic Mirror",
+  "keywords": [],
+  "author": "eigger",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2"
+  }
+}
