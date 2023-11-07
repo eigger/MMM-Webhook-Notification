@@ -35,14 +35,18 @@ Module.register('MMM-Webhook-Notification', {
         return ["notificationFx.js"];
     },
 
+    getTemplate(type) {
+        return `templates/${type}.njk`;
+    },
+
     getStyles: function () {
         return ['MMM-Webhook-Notification.css', "font-awesome.css", this.file(`./styles/notificationFx.css`)];
     },
 
     async showNotification(notification) {
+        const message = await this.renderMessage("notification", notification);
         new NotificationFx({
-            title: notification.title,
-            message: notification.message,
+            message,
             layout: "growl",
             effect: notification.effect,
             ttl: notification.timer,
@@ -74,6 +78,18 @@ Module.register('MMM-Webhook-Notification', {
                 this.toggleBlur(false);
             }
         }
+    },
+
+    renderMessage(type, data) {
+        return new Promise((resolve) => {
+            this.nunjucksEnvironment().render(this.getTemplate(type), data, function (err, res) {
+                if (err) {
+                    Log.error("Failed to render alert", err);
+                }
+
+                resolve(res);
+            });
+        });
     },
 
     toggleBlur(add = false) {

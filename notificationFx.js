@@ -48,9 +48,6 @@
 		// element to which the notification will be appended
 		// defaults to the document.body
 		wrapper: document.body,
-		size: "50px",
-		color: "white",
-		title: "title",
 		// the message
 		message: "yo!",
 		// layout type: growl|attached|bar|other
@@ -81,25 +78,13 @@
 	 * Initialize and cache some vars
 	 */
 	NotificationFx.prototype._init = function () {
-		// div 요소 생성
+		// create HTML structure
 		this.ntf = document.createElement("div");
-
-		// 클래스 이름 설정
-		const classes = [
-			this.options.al_no,
-			`ns-${this.options.layout}`,
-			`ns-effect-${this.options.effect}`,
-			`ns-type-${this.options.type}`
-		];
-		this.ntf.className = classes.join(' ');
-
-		// 내부 div 생성 및 설정
-		var inner = document.createElement("div");
-		inner.className = "ns-box-inner";
-		inner.style.fontsize = this.options.size; // !important 없이 직접 설정
-		inner.style.color = this.options.color;   // !important 없이 직접 설정
-		inner.innerHTML = this.options.title + "-" + this.options.message + "size:" + this.options.size + "color:" + this.options.color; // 안전한 텍스트로 설정, HTML이 필요하면 innerHTML을 사용
-		this.ntf.appendChild(inner);
+		this.ntf.className = this.options.al_no + " ns-" + this.options.layout + " ns-effect-" + this.options.effect + " ns-type-" + this.options.type;
+		let strinner = '<div class="ns-box-inner">';
+		strinner += this.options.message;
+		strinner += "</div>";
+		this.ntf.innerHTML = strinner;
 
 		// append to body or the element specified in options.wrapper
 		this.options.wrapper.insertBefore(this.ntf, this.options.wrapper.nextSibling);
