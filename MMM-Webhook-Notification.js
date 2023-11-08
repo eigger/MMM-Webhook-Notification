@@ -7,7 +7,7 @@ Module.register('MMM-Webhook-Notification', {
     defaults: {
         displayMiliseconds: 10,
         fadeSpeed: 30,
-        title: "Notification",
+        title: "",
         effect: "slide-center", // scale|slide-center|slide-left|side-right|genie|jelly|flip|bouncyflip|exploader
         size: "20px",
         color: "white"

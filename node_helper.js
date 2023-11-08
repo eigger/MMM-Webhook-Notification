@@ -38,13 +38,13 @@ module.exports = NodeHelper.create({
                 var effect = this.config.effect;
                 var size = this.config.size;
                 var color = this.config.color;
-                if (req.body.message !== undefined) message = req.body.message;
-                if (req.body.time !== undefined) displayMiliseconds = req.body.time;
-                if (req.body.fadeSpeed !== undefined) fadeSpeed = req.body.fadeSpeed;
-                if (req.body.title !== undefined) title = req.body.title;
-                if (req.body.effect !== undefined) effect = req.body.effect;
-                if (req.body.size !== undefined) size = req.body.size;
-                if (req.body.color !== undefined) color = req.body.color;
+                if (req.body.message) message = req.body.message;
+                if (req.body.time) displayMiliseconds = req.body.time;
+                if (req.body.fadeSpeed) fadeSpeed = req.body.fadeSpeed;
+                if (req.body.title) title = req.body.title;
+                if (req.body.effect) effect = req.body.effect;
+                if (req.body.size) size = req.body.size;
+                if (req.body.color) color = req.body.color;
                 var msg = {
                     message: message,
                     displayMiliseconds: displayMiliseconds,
@@ -55,7 +55,7 @@ module.exports = NodeHelper.create({
                     effect: effect
                 }
 
-                this.log('Incoming webhook notification ' + JSON.stringify(msg));
+                this.log('WEBHOOK_NOTIFICATION ' + JSON.stringify(msg));
                 this.sendSocketNotification('WEBHOOK_NOTIFICATION', msg);
 
                 // return OK to caller
