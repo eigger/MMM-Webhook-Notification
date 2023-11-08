@@ -15,7 +15,6 @@
   transition: all 0.5s ease;
   overflow: hidden; /* 내부 요소가 넘치면 숨김 */
   white-space: nowrap; /* 텍스트를 한 줄로 표시 */
-  box-sizing: border-box;
 }
 
 .ns-box-inner
