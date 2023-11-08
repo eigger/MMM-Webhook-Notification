@@ -6,13 +6,12 @@
     top: 0;
     right: 0;    
     opacity : 0;
-    /* background-color: #cccccc!important; */
+    background-color: #cccccc!important;
 }
 
 .ns-box
 {
-    width: 850px;
-    background-color: black!important;
+    background-color: #cccccc;
     overflow: hidden; /* 내부 요소가 넘치면 숨김 */
     white-space: nowrap; /* 텍스트를 한 줄로 표시 */
     box-sizing: border-box;
