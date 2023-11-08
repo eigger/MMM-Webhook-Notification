@@ -22,7 +22,7 @@
 {
     position: relative;
     display: inline-block;
-    animation: ticker 5s linear infinite;
+    /* animation: ticker 5s linear infinite; */
 }
 
 /* 키프레임으로 애니메이션의 시작과 끝 상태를 정의합니다 */
