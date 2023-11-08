@@ -9,7 +9,10 @@
   display: table;
   word-wrap: break-word;
   max-width: 100%;
-  border-radius: 50%;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,.2),
+              0px 1px 1px 0px rgba(0,0,0,.14),
+              0px 3px 3px -1px rgba(0,0,0,.12);
   background-color: #cccccc!important;
   overflow: hidden; /* 내부 요소가 넘치면 숨김 */
   white-space: nowrap; /* 텍스트를 한 줄로 표시 */
