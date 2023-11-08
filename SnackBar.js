@@ -190,12 +190,18 @@
                         break;
                     default:
                         if (_Options.icon.length > 1) {
-                            console.warn("Invalid icon character provided: ", _Options.icon);
+                            //console.warn("Invalid icon character provided: ", _Options.icon);
+                            const iconElement = document.createElement("span");
+                            iconElement.className = "mdi mdi-" + _Options.icon;
+                            icon.appendChild(iconElement);
                         }
-
-                        icon.innerText = _Options.icon.substr(0, 1);
+                        else
+                        {
+                            icon.innerText = _Options.icon.substr(0, 1);
+                        }
                         break;
                 }
+
 
                 element.appendChild(icon);
             }
