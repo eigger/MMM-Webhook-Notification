@@ -11,7 +11,7 @@
 
 .ns-box
 {
-    background-color: #cccccc;
+    background-color: #cccccc!important;
     overflow: hidden; /* 내부 요소가 넘치면 숨김 */
     white-space: nowrap; /* 텍스트를 한 줄로 표시 */
     box-sizing: border-box;
