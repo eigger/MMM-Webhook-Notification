@@ -49,7 +49,7 @@ Module.register('MMM-Webhook-Notification', {
             message,
             layout: "growl",
             effect: notification.effect,
-            ttl: notification.timer,
+            ttl: notification.timer || this.config.displayMiliseconds,
             size: notification.size,
             color: notification.color
         }).show();
