@@ -10,7 +10,8 @@ Module.register('MMM-Webhook-Notification', {
         title: "",
         effect: "slide-center", // scale|slide-center|slide-left|side-right|genie|jelly|flip|bouncyflip|exploader
         size: "20px",
-        color: "white"
+        color: "white",
+        type: ""
     },
 
     /**
@@ -32,7 +33,7 @@ Module.register('MMM-Webhook-Notification', {
     },
 
     getScripts() {
-        return ["notificationFx.js"];
+        return ["notificationFx.js", "SnackBar.js"];
     },
 
     getTemplate(type) {
@@ -40,7 +41,7 @@ Module.register('MMM-Webhook-Notification', {
     },
 
     getStyles: function () {
-        return ['MMM-Webhook-Notification.css', "font-awesome.css", this.file(`./styles/notificationFx.css`)];
+        return ['MMM-Webhook-Notification.css', "font-awesome.css", this.file(`./styles/notificationFx.css`), this.file(`./styles/SnackBar.css`)];
     },
 
     async showNotification(notification) {
@@ -54,7 +55,17 @@ Module.register('MMM-Webhook-Notification', {
             color: notification.color
         }).show();
     },
-
+    async showSnackBar(notification) {
+        new SnackBar({
+            message: notification.message,
+            status: notification.status,
+            timeout: notification.timeout,
+            position: notification.position,
+            width: notification.width,
+            icon: notification.icon,
+            speed: notification.speed
+        });
+    },
     /**
      * @param {String}  notification
      * @param {Object}  payload
@@ -65,6 +76,9 @@ Module.register('MMM-Webhook-Notification', {
             // this.updateDom(fadeSpeed);
             //this.sendNotification('SCREEN_WAKEUP', true);
             this.showNotification({ title: payload.title, message: payload.message, timer: payload.displayMiliseconds, effect: payload.effect, size: payload.size, color: payload.color });
+        }
+        else if (notification === 'WEBHOOK_SNACKBAR') {
+            this.showSnackBar(payload);
         }
     },
 
