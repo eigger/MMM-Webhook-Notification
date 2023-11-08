@@ -1,7 +1,5 @@
-/* Based on work by https://tympanus.net/codrops/licensing/ */
 
 .ns-box {
-  background-color: rgba(0, 0, 0, 0.93);
   padding: 17px;
   line-height: 1.4;
   margin-bottom: 10px;
@@ -11,10 +9,28 @@
   display: table;
   word-wrap: break-word;
   max-width: 100%;
-  border-width: 1px;
-  border-radius: 1px;
-  border-style: solid;
-  border-color: var(--color-text-dimmed);
+  border-radius: 50%;
+  background-color: #cccccc!important;
+  overflow: hidden; /* 내부 요소가 넘치면 숨김 */
+  white-space: nowrap; /* 텍스트를 한 줄로 표시 */
+  box-sizing: border-box;
+}
+
+.ns-box-inner
+{
+    position: relative;
+    display: inline-block;
+    /* animation: ticker 5s linear infinite; */
+}
+
+/* 키프레임으로 애니메이션의 시작과 끝 상태를 정의합니다 */
+@keyframes ticker {
+    from {
+        left: 90%;
+    }
+    to {
+        left: -90%;
+    }
 }
 
 .alert-blur {
