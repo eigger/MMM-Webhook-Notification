@@ -36,7 +36,7 @@ You can use CURL for testing.
 
 ```bash
 curl -X POST -H "Content-Type: application/json" \
-    -d '{"message": "hello world!"}' \
+    -d '{"title": "hello", "message": "hello world!", "time": "2000", "size": "100px", "color": "white", "effect": "scale"}' \
     "http://magic mirror url:8080/webhook?"
 ```
 
