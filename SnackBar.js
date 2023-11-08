@@ -193,7 +193,9 @@
                             //console.warn("Invalid icon character provided: ", _Options.icon);
                             const iconElement = document.createElement("span");
                             iconElement.className = "mdi mdi-" + _Options.icon;
-                            icon.appendChild(iconElement);
+                            //icon.appendChild(iconElement);
+                            element.appendChild(icon);
+                            return;
                         }
                         else
                         {
