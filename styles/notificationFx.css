@@ -1,19 +1,18 @@
 
 .ns-box {
-  padding: 17px;
-  line-height: 1.4;
-  margin-bottom: 10px;
-  z-index: 1;
-  font-size: 70%;
-  position: relative;
-  display: table;
-  word-wrap: break-word;
-  max-width: 100%;
-  border-radius: 4px;
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,.2),
-              0px 1px 1px 0px rgba(0,0,0,.14),
-              0px 3px 3px -1px rgba(0,0,0,.12);
-  background-color: black;
+  position:absolute;
+  top:0;
+  left:0;
+  margin:auto;
+  display:block;
+  width:100%;
+  margin:0;
+  padding:0;
+  text-align:center;
+  text-shadow: 0 1px 1px white;
+  background: black;
+  box-shadow: 0 6px 6px -6px black;
+  transition: all 0.5s ease;
   overflow: hidden; /* 내부 요소가 넘치면 숨김 */
   white-space: nowrap; /* 텍스트를 한 줄로 표시 */
   box-sizing: border-box;
