@@ -25,6 +25,7 @@ module.exports = NodeHelper.create({
                     let width = "500px";
                     let icon = "";
                     let speed = 500;
+                    let size = "16px";
                     if (req.body.message) message = req.body.message;
                     if (req.body.status) status = req.body.status;
                     if (req.body.timeout) timeout = req.body.timeout;
@@ -32,6 +33,7 @@ module.exports = NodeHelper.create({
                     if (req.body.width) width = req.body.width;
                     if (req.body.icon) icon = req.body.icon;
                     if (req.body.speed) speed = req.body.speed;
+                    if (req.body.size) size = req.body.size;
                     let msg = {
                         message: message,
                         status: status,
@@ -39,7 +41,8 @@ module.exports = NodeHelper.create({
                         position: position,
                         width: width,
                         icon: icon,
-                        speed: speed
+                        speed: speed,
+                        size: size
                     }
                     this.log('WEBHOOK_SNACKBAR ' + JSON.stringify(msg));
                     this.sendSocketNotification('WEBHOOK_SNACKBAR', msg);

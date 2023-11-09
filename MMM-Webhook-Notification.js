@@ -67,7 +67,8 @@ Module.register('MMM-Webhook-Notification', {
             position: notification.position,
             width: notification.width,
             icon: notification.icon,
-            speed: notification.speed
+            speed: notification.speed,
+            size: notification.size
         });
     },
     /**
@@ -117,11 +118,4 @@ Module.register('MMM-Webhook-Notification', {
             module.classList[method]("alert-blur");
         }
     },
-
-    // /**
-    //  * @returns {*}
-    //  */
-    getDom: function () {
-        return null;
-    }
 });

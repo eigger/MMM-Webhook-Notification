@@ -31,7 +31,8 @@
             container: userOptions?.container ?? document.body,
             width: userOptions?.width,
             speed: userOptions?.speed,
-            icon: userOptions?.icon
+            icon: userOptions?.icon,
+            size: userOption?.size ?? "16px"
         };
     }
 
@@ -67,7 +68,7 @@
         function createNewContainer(target) {
             var container = document.createElement("div");
             container.classList.add("js-snackbar-container");
-
+            container.style.fontSize = _Options.size;
             if(_Options.fixed) {
                 container.classList.add("js-snackbar-container--fixed");
             }
