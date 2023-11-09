@@ -215,15 +215,22 @@
 
             _Message = document.createElement("span");
             _Message.classList.add("js-snackbar__message")
-            _Message.innerHTML = _Options.message;
-
-            if (_Options.effect === "slide") {
-                _Message.classList.add("js-snackbar__effect--slide");
-            }
-            
+            applyEffectTo(_Message);
+            _Message.innerHTML = _Options.message;            
 
             _MessageWrapper.appendChild(_Message);
             element.appendChild(_MessageWrapper);
+
+            function applyEffectTo(element) {
+                switch (_Options.effect)
+                {
+                    case "slide":
+                        element.classList.add("js-snackbar__effect--slide");
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         function addActionsTo(element) {

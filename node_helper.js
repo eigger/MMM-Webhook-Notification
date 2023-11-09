@@ -17,67 +17,37 @@ module.exports = NodeHelper.create({
             this.log(JSON.stringify(this.config));
 
             try {
-                if (this.config.type === "snackbar" || req.body.type === "snackbar") {
-                    let message = "";
-                    let status = ""
-                    let timeout = 5000
-                    let position = "tc"
-                    let width = "500px";
-                    let icon = "";
-                    let speed = 500;
-                    let size = "16px";
-                    let effect = "";
-                    if (req.body.message) message = req.body.message;
-                    if (req.body.status) status = req.body.status;
-                    if (req.body.timeout) timeout = req.body.timeout;
-                    if (req.body.position) position = req.body.position;
-                    if (req.body.width) width = req.body.width;
-                    if (req.body.icon) icon = req.body.icon;
-                    if (req.body.speed) speed = req.body.speed;
-                    if (req.body.size) size = req.body.size;
-                    if (req.body.effect) effect = req.body.effect;
-                    let msg = {
-                        message: message,
-                        status: status,
-                        timeout: timeout,
-                        position: position,
-                        width: width,
-                        icon: icon,
-                        speed: speed,
-                        size: size,
-                        effect: effect
-                    }
-                    this.log('WEBHOOK_SNACKBAR ' + JSON.stringify(msg));
-                    this.sendSocketNotification('WEBHOOK_SNACKBAR', msg);
+                let message = "";
+                let status = this.config.status;
+                let timeout = this.config.timeout;
+                let position = this.config.position;
+                let width = this.config.width;
+                let icon = this.config.icon;
+                let speed = this.config.speed;
+                let size = this.config.size;
+                let effect = this.config.effect;
+                if (req.body.message) message = req.body.message;
+                if (req.body.status) status = req.body.status;
+                if (req.body.timeout) timeout = req.body.timeout;
+                if (req.body.position) position = req.body.position;
+                if (req.body.width) width = req.body.width;
+                if (req.body.icon) icon = req.body.icon;
+                if (req.body.speed) speed = req.body.speed;
+                if (req.body.size) size = req.body.size;
+                if (req.body.effect) effect = req.body.effect;
+                let msg = {
+                    message: message,
+                    status: status,
+                    timeout: timeout,
+                    position: position,
+                    width: width,
+                    icon: icon,
+                    speed: speed,
+                    size: size,
+                    effect: effect
                 }
-                else {
-                    let message = "";
-                    let displayMiliseconds = this.config.displayMiliseconds;
-                    let fadeSpeed = this.config.fadeSpeed;
-                    let title = this.config.title;
-                    let effect = this.config.effect;
-                    let size = this.config.size;
-                    let color = this.config.color;
-                    if (req.body.message) message = req.body.message;
-                    if (req.body.time) displayMiliseconds = req.body.time;
-                    if (req.body.fadeSpeed) fadeSpeed = req.body.fadeSpeed;
-                    if (req.body.title) title = req.body.title;
-                    if (req.body.effect) effect = req.body.effect;
-                    if (req.body.size) size = req.body.size;
-                    if (req.body.color) color = req.body.color;
-                    let msg = {
-                        message: message,
-                        displayMiliseconds: displayMiliseconds,
-                        fadeSpeed: fadeSpeed,
-                        title: title,
-                        size: size,
-                        color: color,
-                        effect: effect
-                    }
-    
-                    this.log('WEBHOOK_NOTIFICATION ' + JSON.stringify(msg));
-                    this.sendSocketNotification('WEBHOOK_NOTIFICATION', msg);
-                }
+                this.log('WEBHOOK_SNACKBAR ' + JSON.stringify(msg));
+                this.sendSocketNotification('WEBHOOK_SNACKBAR', msg);
                 res.status(200)
                     .send({
                         status: 200
