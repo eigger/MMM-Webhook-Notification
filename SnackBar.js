@@ -32,7 +32,7 @@
             width: userOptions?.width,
             speed: userOptions?.speed,
             icon: userOptions?.icon,
-            size: userOption?.size ?? "16px"
+            size: userOptions?.size ?? "16px"
         };
     }
 

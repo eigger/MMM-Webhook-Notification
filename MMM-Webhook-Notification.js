@@ -45,8 +45,8 @@ Module.register('MMM-Webhook-Notification', {
     },
     
     getDom: function() {
-        return null;
-        //return "";
+        //return null;
+        return "";
     },
 
     async showNotification(notification) {
