@@ -98,6 +98,8 @@
 
 .js-snackbar__message.js-snackbar__effect--slide
 {
+    position: relative;
+    display: inline-block;
     animation: ticker 5s linear infinite;
 }
 
