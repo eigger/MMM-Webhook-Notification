@@ -99,6 +99,7 @@
 {
     position: relative;
     display: inline-block;
+    overflow: hidden;
     animation: ticker 5s linear infinite;
 }
 
