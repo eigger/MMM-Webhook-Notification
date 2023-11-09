@@ -43,6 +43,10 @@ Module.register('MMM-Webhook-Notification', {
     getStyles: function () {
         return ['MMM-Webhook-Notification.css', "font-awesome.css", "https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css", this.file(`./styles/notificationFx.css`), this.file(`./styles/SnackBar.css`)];
     },
+    
+    getDom: function() {
+        return "";
+    },
 
     async showNotification(notification) {
         const message = await this.renderMessage("notification", notification);
