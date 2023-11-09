@@ -93,13 +93,11 @@
 
 .js-snackbar__message {
     display: inline-block;
+    overflow: hidden;
 }
 
 .js-snackbar__message.js-snackbar__effect--slide
 {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
     animation: ticker 5s linear infinite;
 }
 
@@ -108,7 +106,7 @@
         left: 100%;
     }
     to {
-        left: -10%;
+        left: -100%;
     }
 }
 
