@@ -68,7 +68,6 @@
         function createNewContainer(target) {
             var container = document.createElement("div");
             container.classList.add("js-snackbar-container");
-            container.style.fontSize = _Options.size;
             if(_Options.fixed) {
                 container.classList.add("js-snackbar-container--fixed");
             }
@@ -114,10 +113,9 @@
             outerElement.style.opacity = "0";
             outerElement.style.marginTop = "0px";
             outerElement.style.marginBottom = "0px";
-
             setWidth(outerElement);
             setSpeed(outerElement);
-            
+            setSize(outerElement);
             return outerElement;
         }
 
@@ -285,6 +283,11 @@
                     element.style.transitionDuration = speed;
                     break;
             }
+        }
+
+        function setSize(element) {
+            if (!_Options.size) return;
+            element.style.fontSize = _Options.size;
         }
     }
 
