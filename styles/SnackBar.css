@@ -105,10 +105,10 @@
 
 @keyframes ticker {
     from {
-        left: 90%;
+        left: 100%;
     }
     to {
-        left: -90%;
+        left: -10%;
     }
 }
 
