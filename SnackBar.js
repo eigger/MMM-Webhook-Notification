@@ -32,7 +32,8 @@
             width: userOptions?.width,
             speed: userOptions?.speed,
             icon: userOptions?.icon,
-            size: userOptions?.size ?? "16px"
+            size: userOptions?.size ?? "16px",
+            effect: userOptions?.effect ?? ""
         };
     }
 
@@ -215,6 +216,11 @@
             _Message = document.createElement("span");
             _Message.classList.add("js-snackbar__message")
             _Message.innerHTML = _Options.message;
+
+            if (_Options.effect === "slide") {
+                _Message.classList.add("js-snackbar__effect--slide");
+            }
+            
 
             _MessageWrapper.appendChild(_Message);
             element.appendChild(_MessageWrapper);

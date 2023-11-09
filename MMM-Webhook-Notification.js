@@ -69,7 +69,8 @@ Module.register('MMM-Webhook-Notification', {
             width: notification.width,
             icon: notification.icon,
             speed: notification.speed,
-            size: notification.size
+            size: notification.size,
+            effect: notification.effect
         });
     },
     /**
