@@ -85,6 +85,9 @@
 .js-snackbar__message-wrapper {
     position: relative;
     overflow: hidden;
+}
+
+.js-snackbar__message-wrapper {
     flex: 1;
     padding: 12px;
 }
