@@ -18,15 +18,9 @@ modules: [
     {
         module: 'MMM-Webhook-Notification',        
         position: 'fullscreen_above',
-        config: {
-            fadeSpeed: 30,
-		    displayMiliseconds:5000,  
-        }
     }
 ]
 ```
-
-
 
 # Sending WebHook Notifcations
 
@@ -36,7 +30,7 @@ You can use CURL for testing.
 
 ```bash
 curl -X POST -H "Content-Type: application/json" \
-    -d '{"title": "hello", "message": "hello world!", "time": "2000", "size": "100px", "color": "white", "effect": "scale"}' \
+    -d '{"message":"hello", "status":"info", "timeout":"5000", "position":"tc", "width":"400px", "icon":"error", "size":"16px", "effect":""}' \
     "http://magic mirror url:8080/webhook?"
 ```
 

@@ -45,10 +45,11 @@ Module.register('MMM-Webhook-Notification', {
         return ['MMM-Webhook-Notification.css', "font-awesome.css", "https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css", this.file(`./styles/SnackBar.css`)];
     },
     
-    // getDom: function() {
-    //     //return null;
-    //     return "";
-    // },
+    getDom: function() {
+        const wrapper = document.createElement("ticker");
+        wrapper.className = "dimmed small";
+        return wrapper;
+    },
 
     async showSnackBar(notification) {
         new SnackBar({
@@ -70,38 +71,6 @@ Module.register('MMM-Webhook-Notification', {
     socketNotificationReceived: function (notification, payload) {
         if (notification === 'WEBHOOK_SNACKBAR') {
             this.showSnackBar(payload);
-        }
-    },
-
-    hideAlert(sender, close = true) {
-        // Dismiss alert and remove from this.alerts
-        if (this.alerts[sender.name]) {
-            this.alerts[sender.name].dismiss(close);
-            delete this.alerts[sender.name];
-            // Remove overlay
-            if (!Object.keys(this.alerts).length) {
-                this.toggleBlur(false);
-            }
-        }
-    },
-
-    renderMessage(type, data) {
-        return new Promise((resolve) => {
-            this.nunjucksEnvironment().render(this.getTemplate(type), data, function (err, res) {
-                if (err) {
-                    Log.error("Failed to render alert", err);
-                }
-
-                resolve(res);
-            });
-        });
-    },
-
-    toggleBlur(add = false) {
-        const method = add ? "add" : "remove";
-        const modules = document.querySelectorAll(".module");
-        for (const module of modules) {
-            module.classList[method]("alert-blur");
         }
     },
 });
