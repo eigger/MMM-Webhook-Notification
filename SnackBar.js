@@ -168,43 +168,41 @@
 
             function applyIconTo(element) {
                 if (!_Options.icon) return;
-
                 var icon = document.createElement("span");
                 icon.classList.add("js-snackbar__icon");
-
                 switch (_Options.icon)
                 {
                     case "exclamation":
                     case "warn":
                     case "danger":
                         icon.innerText = "!";
+                        icon.classList.add("js-snackbar--circle");
                         break;
                     case "info":
                     case "question":
                     case "question-mark":
                         icon.innerText = "?";
+                        icon.classList.add("js-snackbar--circle");
                         break;
                     case "plus":
                     case "add":
                         icon.innerText = "+";
+                        icon.classList.add("js-snackbar--circle");
                         break;
                     default:
                         if (_Options.icon.length > 1) {
-                            //console.warn("Invalid icon character provided: ", _Options.icon);
                             const iconElement = document.createElement("span");
                             iconElement.className = "mdi mdi-" + _Options.icon;
-                            //icon.appendChild(iconElement);
-                            element.appendChild(iconElement);
+                            icon.appendChild(iconElement);
                             return;
                         }
                         else
                         {
                             icon.innerText = _Options.icon.substr(0, 1);
+                            icon.classList.add("js-snackbar--circle");
                         }
                         break;
                 }
-
-
                 element.appendChild(icon);
             }
         }
