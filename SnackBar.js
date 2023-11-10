@@ -194,6 +194,7 @@
                             const iconElement = document.createElement("span");
                             iconElement.className = "mdi mdi-" + _Options.icon;
                             icon.appendChild(iconElement);
+                            icon.classList.add("js-snackbar--mdi");
                             return;
                         }
                         else

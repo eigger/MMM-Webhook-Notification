@@ -162,6 +162,10 @@
     border-radius: 20px;
 }
 
+.js-snackbar__icon.js-snackbar--mdi{
+    border: 2px solid transparent;
+}
+
 .js-snackbar__action {
     display: flex;
     align-items: center;
