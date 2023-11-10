@@ -12,7 +12,8 @@ Module.register('MMM-Webhook-Notification', {
         icon : "",
         speed : 500,
         size : "16px",
-        effect : ""
+        effect : "",
+        dismissible: false
     },
 
     /**
@@ -42,7 +43,12 @@ Module.register('MMM-Webhook-Notification', {
     // },
 
     getStyles: function () {
-        return ['MMM-Webhook-Notification.css', "font-awesome.css", "https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css", this.file(`./styles/SnackBar.css`)];
+        return [
+            'MMM-Webhook-Notification.css', 
+            "font-awesome.css", 
+            "https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css", 
+            this.file(`./styles/SnackBar.css`)
+        ];
     },
     
     getDom: function() {
@@ -61,7 +67,8 @@ Module.register('MMM-Webhook-Notification', {
             icon: notification.icon,
             speed: notification.speed,
             size: notification.size,
-            effect: notification.effect
+            effect: notification.effect,
+            dismissible: notification.dismissible
         });
     },
     /**
@@ -69,7 +76,7 @@ Module.register('MMM-Webhook-Notification', {
      * @param {Object}  payload
      */
     socketNotificationReceived: function (notification, payload) {
-        if (notification === 'WEBHOOK_SNACKBAR') {
+        if (notification === 'WEBHOOK_NOTIFICATION') {
             this.showSnackBar(payload);
         }
     },

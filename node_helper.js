@@ -14,40 +14,23 @@ module.exports = NodeHelper.create({
 
         this.expressApp.post('/webhook', (req, res) => {
             this.log('Incoming webhook notification : ' + JSON.stringify(req.body), true);
-            this.log(JSON.stringify(this.config));
+            this.log('config : ' + JSON.stringify(this.config));
 
             try {
-                let message = "";
-                let status = this.config.status;
-                let timeout = this.config.timeout;
-                let position = this.config.position;
-                let width = this.config.width;
-                let icon = this.config.icon;
-                let speed = this.config.speed;
-                let size = this.config.size;
-                let effect = this.config.effect;
-                if (req.body.message) message = req.body.message;
-                if (req.body.status) status = req.body.status;
-                if (req.body.timeout) timeout = req.body.timeout;
-                if (req.body.position) position = req.body.position;
-                if (req.body.width) width = req.body.width;
-                if (req.body.icon) icon = req.body.icon;
-                if (req.body.speed) speed = req.body.speed;
-                if (req.body.size) size = req.body.size;
-                if (req.body.effect) effect = req.body.effect;
                 let msg = {
-                    message: message,
-                    status: status,
-                    timeout: timeout,
-                    position: position,
-                    width: width,
-                    icon: icon,
-                    speed: speed,
-                    size: size,
-                    effect: effect
+                    message: req.body?.message || "",
+                    status: req.body?.status || this.config.status,
+                    timeout: req.body?.timeout || this.config.timeout,
+                    position: req.body?.position || this.config.position,
+                    width: req.body?.width || this.config.width,
+                    icon: req.body?.icon || this.config.icon,
+                    speed: req.body?.speed || this.config.speed,
+                    size: req.body?.size || this.config.size,
+                    effect: req.body?.effect || this.config.effect,
+                    dismissible: req.body?.dismissible || this.config.dismissible
                 }
-                this.log('WEBHOOK_SNACKBAR ' + JSON.stringify(msg));
-                this.sendSocketNotification('WEBHOOK_SNACKBAR', msg);
+                this.log('notification ' + JSON.stringify(msg));
+                this.sendSocketNotification('WEBHOOK_NOTIFICATION', msg);
                 res.status(200)
                     .send({
                         status: 200
