@@ -225,8 +225,8 @@
                     case "slide":
                         element.classList.add("js-snackbar__effect--slide");
                         break;
-                    case "blank":
-                        element.classList.add("js-snackbar__effect--blank");
+                    case "blink":
+                        element.classList.add("js-snackbar__effect--blink");
                         break;
                     default:
                         break;

@@ -112,12 +112,12 @@
     }
 }
 
-.js-snackbar__message.js-snackbar__effect--blank
+.js-snackbar__message.js-snackbar__effect--blink
 {
-    animation: effect_blank 2s linear infinite;
+    animation: effect_blink 2s linear infinite;
 }
 
-@keyframes effect_blank {
+@keyframes effect_blink {
     50% {
         opacity: 0;
     }
