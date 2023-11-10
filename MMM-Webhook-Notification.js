@@ -13,7 +13,7 @@ Module.register('MMM-Webhook-Notification', {
         speed : 500,
         size : "16px",
         effect : "",
-        dismissible: false
+        dismissible: true
     },
 
     /**
