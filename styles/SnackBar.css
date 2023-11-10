@@ -100,15 +100,26 @@
 {
     position: relative;
     display: inline-block;
-    animation: ticker 5s linear infinite;
+    animation: effect_slide 5s linear infinite;
 }
 
-@keyframes ticker {
+@keyframes effect_slide {
     from {
         left: 100%;
     }
     to {
         left: -100%;
+    }
+}
+
+.js-snackbar__message.js-snackbar__effect--blank
+{
+    animation: effect_blank 5s linear infinite;
+}
+
+@keyframes effect_blank {
+    50% {
+        opacity: 0;
     }
 }
 
