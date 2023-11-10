@@ -84,16 +84,13 @@
 .js-snackbar__status,
 .js-snackbar__message-wrapper {
     position: relative;
-}
-
-.js-snackbar__message-wrapper {
+    overflow: hidden;
     flex: 1;
     padding: 12px;
 }
 
 .js-snackbar__message {
     display: inline-block;
-    overflow: hidden;
 }
 
 .js-snackbar__message.js-snackbar__effect--slide
