@@ -114,7 +114,7 @@
 
 .js-snackbar__message.js-snackbar__effect--blank
 {
-    animation: effect_blank 5s linear infinite;
+    animation: effect_blank 2s linear infinite;
 }
 
 @keyframes effect_blank {
